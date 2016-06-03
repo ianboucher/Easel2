@@ -1,0 +1,9 @@
+%br/
+.media-left
+  = gravatar_url(current_user, 128)
+.media-body
+  .pull-right
+    = link_to "Edit Your Details", edit_user_registration_path, class: 'btn btn-primary'
+  %h2.media-heading= current_user.username
+  %small
+    Member since #{current_user.created_at.strftime("%B %d, %Y")}

@@ -16,6 +16,7 @@ gem 'devise'
 gem 'faker'
 gem 'pg', '~> 0.15'
 gem 'pundit'
+gem 'haml'
 
 group :production do
   gem 'rails_12factor'
@@ -28,6 +29,7 @@ group :development do
   gem 'pry-rails'
   gem 'quiet_assets'
   gem 'figaro', '1.0'
+  gem 'haml-rails'
 end
 
 group :development, :test do
