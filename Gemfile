@@ -13,10 +13,14 @@ gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
-gem 'faker'
 gem 'pg', '~> 0.15'
 gem 'pundit'
-gem 'haml'
+gem 'haml-rails'
+gem 'refile', require: "refile/rails", github: 'refile/refile'
+gem 'refile-s3'
+gem 'refile-mini_magick'
+gem 'cocoon'
+gem 'stripe'
 
 group :production do
   gem 'rails_12factor'
@@ -29,7 +33,7 @@ group :development do
   gem 'pry-rails'
   gem 'quiet_assets'
   gem 'figaro', '1.0'
-  gem 'haml-rails'
+  gem 'faker'
 end
 
 group :development, :test do

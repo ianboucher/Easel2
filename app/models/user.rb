@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   enum role: [:standard, :premium, :admin]
+
+  has_one :profile
+  has_many :artworks
 end
