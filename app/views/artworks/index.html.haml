@@ -1,0 +1,13 @@
+%h1 Discover great Artwork on Easel
+%br/
+%center
+  - @artworks.each do |artwork|
+    = link_to image_tag(attachment_url(artwork.images.first, :file, :fill, 200, 200),
+      class: 'image-responsive'), artwork_path(artwork)
+  -# - @artworks.in_groups_of(3, false).each do |group|
+  -#   .row
+  -#     - group.each do |artwork|
+  -#       .col-md-4
+  -#         = link_to image_tag(attachment_url(img, :file), class: 'image-responsive'),
+  -#           artwork_path(artwork)
+  -#       %br/
