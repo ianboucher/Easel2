@@ -9,7 +9,6 @@ class Dashboard
   end
 
   def purchased_artworks
-    @user.purchases.artwork
+    @user.purchased_artworks.all
   end
-
 end

@@ -10,3 +10,4 @@
 
 = link_to "Edit your Listing", edit_artwork_path, class: 'btn btn-primary'
 = link_to "Make a new Listing", new_artwork_path, class: 'btn btn-primary'
+= link_to "Buy it!", new_purchase_path(id: @artwork.id), class: 'btn btn-primary'

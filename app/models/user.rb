@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
 
   has_one :profile
   has_many :artworks
+  has_many :purchases
+  has_many :purchased_artworks, through: :purchases, source: :artwork
 end

@@ -6,9 +6,11 @@ Rails.application.routes.draw do
 
   resources :artworks
 
+  resources :images, only: [:create, :destroy]
+
   resources :purchases, only: [:new, :create]
 
-  resources :images#, only: [:create, :destroy]
+  resources :refunds, only: [:new, :create]
 
   resources :dashboards, only: :show
 

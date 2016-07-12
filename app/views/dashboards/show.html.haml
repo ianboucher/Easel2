@@ -8,6 +8,7 @@
   %small
     Member since #{ current_user.created_at.strftime("%B %d, %Y") }
 %br/
+
 .media-heading
   - if current_user.profile.present?
     =link_to "Edit your Profile", edit_profile_path(current_user.profile),
@@ -18,9 +19,23 @@
       class: 'btn btn-primary'
 
   =link_to "List an Artwork", new_artwork_path, class: 'btn btn-default'
--# .col-md-8
--#   - @dashboard.listed_artworks.each do |artwork|
--#     .row
--#       %br/
--#       =link_to image_tag(artwork.images.first.file.thumb, class: 'image-responsive'), artwork_path(artwork)
--#       =artwork.title
+
+%h3 Listed Artworks
+.col-md-8
+  - @dashboard.listed_artworks.each do |artwork|
+    .row
+      %br/
+      =link_to image_tag(attachment_url(artwork.images.first, :file, :fit, 200, 200),
+        class: 'image-responsive'), artwork_path(artwork)
+      =artwork.title
+
+.row
+%h3 Purchased Artworks
+.col-md-8
+  - @dashboard.purchased_artworks.each do |artwork|
+    .row
+      %br/
+      =link_to image_tag(attachment_url(artwork.images.first, :file, :fit, 200, 200),
+        class: 'image-responsive'), artwork_path(artwork)
+      =artwork.title
+      =link_to "Refund", refunds_path(purchase_id: artwork.purchases.first), method: :create, class: 'btn btn-primary'
