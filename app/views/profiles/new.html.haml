@@ -1,0 +1,33 @@
+%h1 Create your Profile page
+%br/
+.col-md-8
+  = form_for @profile do |f|
+
+    = form_group_tag(@profile.errors[:name]) do
+      = f.label :name
+      = f.text_field :name, class: 'form-control',
+        placeholder: "Enter your name here"
+
+    = form_group_tag(@profile.errors[:tagline]) do
+      = f.label :tagline
+      = f.text_field :tagline, class: 'form-control',
+        placeholder: "Enter a 1-line description"
+
+    = form_group_tag(@profile.errors[:statement]) do
+      = f.label :statement
+      = f.text_area :statement, rows: 8, class: 'form-control',
+        placeholder: "Enter your Artist's Statement here"
+
+    = form_group_tag(@profile.errors[:info]) do
+      = f.label :info
+      = f.text_area :info, rows: 12, class: 'form-control',
+        placeholder: "Write anything you like here"
+
+    %h3 Images
+    #images
+      = f.fields_for :images do |image|
+        = render 'shared/image_fields', f: image
+      .links
+        = link_to_add_association 'add image', f, :images, partial: 'shared/image_fields'
+    %br/
+    = f.submit "Save", class: 'btn btn-success'

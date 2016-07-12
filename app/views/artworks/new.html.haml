@@ -9,8 +9,8 @@
 
     = form_group_tag(@artwork.errors[:category]) do
       = f.label :category
-      = f.text_field :category, class: 'form-control',
-        placeholder: "Enter a category/categories e.g. Landscapes, separated by commas"
+      = f.text_field :category_list, class: 'form-control',
+        placeholder: "Enter categories e.g. Landscapes, separated by commas"
 
     = form_group_tag(@artwork.errors[:description]) do
       = f.label :description

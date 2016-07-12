@@ -1,0 +1,11 @@
+%br/
+%center
+  - @profile.images.each do |img|
+    = image_tag(attachment_url(img, :file, :fit, 300, 300))
+
+%h1= @profile.name
+%h3= @profile.tagline
+%p=  @profile.statement
+%p=  @profile.info
+
+= link_to "Edit your Profile", edit_profile_path, class: 'btn btn-primary'

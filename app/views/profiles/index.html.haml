@@ -1,0 +1,17 @@
+%h1 Discover Artists on Easel
+%br/
+- @profiles.each do |profile|
+  .row
+    .col-md-3
+      = image_tag(attachment_url(profile.images.first, :file, :fit, 200, 200 ), class: 'image-responsive')
+    .media-heading
+      .col-md-2
+        %h4= link_to profile.name, profile_path(profile)
+      .col-md-4
+        %h5= profile.tagline
+  %br/
+
+-# %center
+-#   - @artworks.each do |artwork|
+-#     = link_to image_tag(attachment_url(artwork.images.first, :file, :fill, 200, 200),
+-#       class: 'image-responsive'), artwork_path(artwork)

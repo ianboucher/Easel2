@@ -4,9 +4,9 @@
     = image_tag(attachment_url(img, :file, :fit, 400, 400))
 
 %h1= @artwork.title
-%h3= @artwork.category
+%h3= @artwork.category_list
 %p= @artwork.description
-%p= @artwork.price
+%p= number_to_currency(@artwork.price)
 
 = link_to "Edit your Listing", edit_artwork_path, class: 'btn btn-primary'
 = link_to "Make a new Listing", new_artwork_path, class: 'btn btn-primary'

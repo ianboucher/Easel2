@@ -9,7 +9,7 @@
 
     = form_group_tag(@artwork.errors[:category]) do
       = f.label :category
-      = f.text_field :category, class: 'form-control',
+      = f.text_field :category_list, class: 'form-control',
         placeholder: "Enter a category/categories e.g. Landscapes, separated by commas"
 
     = form_group_tag(@artwork.errors[:description]) do
@@ -30,8 +30,8 @@
     %h3 Images
     #images
       = f.fields_for :images do |image|
-        = render 'image_fields', f: image
+        = render 'shared/image_fields', f: image
       .links
-        = link_to_add_association 'add image', f, :images
+        = link_to_add_association 'add image', f, :images, partial: 'shared/image_fields'
     %br/
     = f.submit "Save", class: 'btn btn-success'
