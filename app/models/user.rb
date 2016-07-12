@@ -10,4 +10,9 @@ class User < ActiveRecord::Base
   has_many :artworks
   has_many :purchases
   has_many :purchased_artworks, through: :purchases, source: :artwork
+  has_many :favorites, dependent: :destroy
+
+  def favorite_for(artwork)
+    favorites.where(artwork_id: artwork.id).first
+  end
 end

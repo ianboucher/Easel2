@@ -4,13 +4,15 @@ Rails.application.routes.draw do
 
   resources :profiles
 
-  resources :artworks
+  resources :artworks do
+    resources :favorites, only: [:create, :destroy]
+  end
 
   resources :images, only: [:create, :destroy]
 
   resources :purchases, only: [:new, :create]
 
-  resources :refunds, only: [:new, :create]
+  resources :refunds, only: [:create]
 
   resources :dashboards, only: :show
 
