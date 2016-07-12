@@ -1,5 +1,12 @@
 %h1 Edit your Artwork Listing
 %br/
+%center
+  .list-group#draggableList
+    - @artwork.images.each do |img|
+      .list-group-item
+        = image_tag(attachment_url(img, :file, :fit, 400, 400))
+        %span{ class: 'ion-arrow-move', 'aria-hidden' => 'true' }
+
 .col-md-8
   = form_for @artwork do |f|
     = form_group_tag(@artwork.errors[:title]) do

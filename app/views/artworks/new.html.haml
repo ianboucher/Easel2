@@ -30,8 +30,8 @@
     %h3 Images
     #images
       = f.fields_for :images do |image|
-        = render 'image_fields', f: image
+        = render 'shared/image_fields', f: image
       .links
-        = link_to_add_association 'add image', f, :images
+        = link_to_add_association 'add image', f, :images, partial: 'shared/image_fields'
     %br/
     = f.submit "Save", class: 'btn btn-success'

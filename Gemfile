@@ -21,6 +21,7 @@ gem 'refile-s3'
 gem 'refile-mini_magick'
 gem 'cocoon'
 gem 'stripe'
+gem 'acts_as_list'
 
 group :production do
   gem 'rails_12factor'

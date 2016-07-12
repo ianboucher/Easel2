@@ -6,12 +6,15 @@
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
       = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
       = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
+      = stylesheet_link_tag 'http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'
+      = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.4.2/Sortable.min.js'
       -# = javascript_include_tag :cocoon
       = csrf_meta_tags
 
   %body
     .container
-    
+
       .flash
         - if flash[:notice]
           .alert.alert-success

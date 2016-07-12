@@ -1,5 +1,12 @@
 %h1 Edit your Profile page
 %br/
+%center
+  .list-group#draggableList
+    - @profile.images.each do |img|
+      .list-group-item
+        = image_tag(attachment_url(img, :file, :fit, 400, 400))
+        %span{ class: 'ion-arrow-move', 'aria-hidden' => 'true' }
+        
 .col-md-8
   = form_for @profile do |f|
 

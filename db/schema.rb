@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20160704105918) do
   add_index "artworks", ["user_id"], name: "index_artworks_on_user_id", using: :btree
 
   create_table "images", force: :cascade do |t|
-    t.string   "file"
     t.string   "file_id"
+    t.integer  "position"
     t.integer  "imageable_id"
     t.string   "imageable_type"
     t.datetime "created_at",     null: false
