@@ -3,7 +3,7 @@
 %center
   .list-group#draggableList
     - @artwork.images.each do |img|
-      .list-group-item
+      = div_for(img, class: 'list-group-item') do
         = image_tag(attachment_url(img, :file, :fit, 400, 400))
         %span{ class: 'ion-arrow-move', 'aria-hidden' => 'true' }
 

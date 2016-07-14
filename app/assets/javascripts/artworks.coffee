@@ -12,6 +12,7 @@ $ ->
     onEnd: (e) ->
       console.log(e)
       itemId = e.item.id.split(/_/)[1] # Item id is empty
+      console.log(itemId)
       $.ajax
         url: "/images/#{itemId}"
         method: 'patch'

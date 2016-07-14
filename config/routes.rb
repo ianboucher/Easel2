@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create, :destroy]
   end
 
-  resources :images, only: [:create, :destroy]
+  resources :images, only: [:create, :update, :destroy]
 
   resources :purchases, only: [:new, :create]
 
