@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :purchased_artworks, through: :purchases, source: :artwork
   has_many :favorites, dependent: :destroy
 
-  def favorite_for(artwork)
-    favorites.where(artwork_id: artwork.id).first
+  def favorite_for(favoritable)
+    favorites.where(favoritable_id: favoritable.id).first
   end
 end

@@ -10,9 +10,7 @@ $ ->
     draggable: '.list-group-item'
 
     onEnd: (e) ->
-      console.log(e)
-      itemId = e.item.id.split(/_/)[1] # Item id is empty
-      console.log(itemId)
+      itemId = e.item.id.split(/_/)[1] # requires image be wrapped with 'div_for' which provides id.
       $.ajax
         url: "/images/#{itemId}"
         method: 'patch'

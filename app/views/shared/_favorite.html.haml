@@ -1,8 +1,8 @@
-- if favorite = current_user.favorite_for(artwork)
-  = link_to [artwork, favorite], class: 'btn btn-danger', method: :delete do
-    %i.glyphicon.glyphicon-star-empty>
+- if favorite = current_user.favorite_for(favoritable)
+  = link_to favorite_path(favoritable), class: 'btn btn-danger', method: :delete do
+    %i.ion-heart-broken>
     \  Unfavorite
 - else
-  = link_to [artwork, Favorite.new], class: 'btn btn-primary', method: :post do
+  = link_to favorites_path(favoritable: favoritable), class: 'btn btn-primary', method: :post do
     %i.ion-heart>
     \  Favorite

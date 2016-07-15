@@ -1,4 +1,4 @@
 class Favorite < ActiveRecord::Base
   belongs_to :user
-  belongs_to :artwork
+  belongs_to :favoritable, polymorphic: true
 end

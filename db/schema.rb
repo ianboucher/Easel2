@@ -31,12 +31,13 @@ ActiveRecord::Schema.define(version: 20160712180907) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "artwork_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "favoritable_id"
+    t.string   "favoritable_type"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
-  add_index "favorites", ["artwork_id"], name: "index_favorites_on_artwork_id", using: :btree
+  add_index "favorites", ["favoritable_type", "favoritable_id"], name: "index_favorites_on_favoritable_type_and_favoritable_id", using: :btree
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
   create_table "images", force: :cascade do |t|
@@ -103,7 +104,6 @@ ActiveRecord::Schema.define(version: 20160712180907) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "artworks", "users"
-  add_foreign_key "favorites", "artworks"
   add_foreign_key "favorites", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "purchases", "artworks"
