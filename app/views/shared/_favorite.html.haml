@@ -1,8 +1,19 @@
-- if favorite = current_user.favorite_for(favoritable)
-  = link_to favorite_path(favoritable), class: 'btn btn-danger', method: :delete do
-    %i.ion-heart-broken>
-    \  Unfavorite
-- else
-  = link_to favorites_path(favoritable: favoritable), class: 'btn btn-primary', method: :post do
-    %i.ion-heart>
-    \  Favorite
+-# - if favorite = current_user.favorite_for(favoritable)
+-#   = link_to [favoritable, favorite], class: 'btn btn-danger', method: :delete do
+-#     %i.ion-heart-broken>
+-#     \  Unfavorite
+-# - else
+-#   = link_to [favoritable, Favorite.new], class: 'btn btn-primary', method: :post do
+-#     %i.ion-ios-heart>
+-#     \  Favorite
+
+
+
+-# - if favorite = current_user.favorite_for(favoritable)
+-#   = link_to favorite_path(favoritable), class: 'btn btn-danger', method: :delete do
+-#     %i.ion-heart-broken>
+-#     \  Unfavorite
+-# - else
+-#   = link_to favorites_path(favoritable), class: 'btn btn-primary', method: :post do
+-#     %i.ion-ios-heart>
+-#     \  Favorite
