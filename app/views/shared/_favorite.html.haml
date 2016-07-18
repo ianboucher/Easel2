@@ -1,8 +1,8 @@
-- if favorite = current_user.favorite_for(favoritable)
-  = link_to favorite_path(favoritable), class: 'btn btn-danger', method: :delete do
+- if user_fave
+  = link_to favorite_path(user_fave), class: 'btn btn-danger', method: :delete do
     %i.ion-heart-broken>
     \  Unfavorite
 - else
-  = link_to favorites_path(favoritable: favoritable), class: 'btn btn-primary', method: :post do
+  = link_to favorites_path(favorite: {favoritable_id: favoritable.id, favoritable_type: favoritable.class.to_s}), class: 'btn btn-primary', method: :post do
     %i.ion-heart>
     \  Favorite

@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find(params[:id])
+    @user_fave = Favorite.find_by(favoritable: @profile, user: current_user)
   end
 
   def new
