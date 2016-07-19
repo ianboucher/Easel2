@@ -5,7 +5,8 @@ class ArtworksController < ApplicationController
   end
 
   def show
-    @artwork = Artwork.find(params[:id])
+    @artwork   = Artwork.find(params[:id])
+    @favorited = current_user.favorites.find_by(favoritable: @artwork)
   end
 
   def new
@@ -13,7 +14,6 @@ class ArtworksController < ApplicationController
   end
 
   def create
-    # binding.pry
     @artwork = current_user.artworks.new(artwork_params)
 
     if @artwork.save!

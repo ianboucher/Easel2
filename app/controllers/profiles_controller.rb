@@ -5,7 +5,8 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find(params[:id])
+    @profile   = Profile.find(params[:id])
+    @favorited = Favorite.find_by(favoritable: @profile, user: current_user)
   end
 
   def new
@@ -13,7 +14,6 @@ class ProfilesController < ApplicationController
   end
 
   def create
-
     @profile = current_user.build_profile(profile_params) # syntax for has_one association
 
     if @profile.save!
@@ -44,7 +44,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:name, :tagline, :statement, :info, 
+    params.require(:profile).permit(:name, :tagline, :statement, :info,
       images_attributes:[:id, :file, :_destroy])
   end
 end
